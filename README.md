@@ -10,8 +10,6 @@ Tabela de conteúdos
  <a href="#objetivo">Objetivo</a> •
  <a href="#roadmap">Roadmap</a> • 
  <a href="#tecnologias">Tecnologias</a> • 
- <a href="#contribuicao">Contribuição</a> • 
- <a href="#licenc-a">Licença</a> • 
  <a href="#autor">Autor</a>
 </p>
 
@@ -23,7 +21,7 @@ Tabela de conteúdos
 
 - [x] Interface UI
 - [x] Requisição de API Clima
-- [ ] Interface UX
+- [X] Interface UX
 - [ ] Cadastro de usuário
 - [ ] Cadastro de cliente
 
@@ -51,4 +49,17 @@ $ npm run dev:server
 # O servidor inciará na porta:3000 - acesse <http://localhost:3000/>
 ```
 
+### 🛠 Tecnologias
 
+As seguintes ferramentas foram usadas na construção do projeto:
+
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [Axios](https://axios-http.com/)
+
+### Autor
+
+Feito por Felipe Barbosa para iniciar aprendizagem 👋🏽 Entre em contato!
+
+[![Linkedin Badge](https://img.shields.io/badge/-Thiago-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tgmarinho/)](https://www.linkedin.com/in/felipe-barbosa-849452157/) 
+[![Hotmail Badge](https://img.shields.io/badge/-Hotmail-0078D4?style=flat-square&logo=microsoft-outlook&logoColor=white&link=mailto:luizcarlos_abbott@hotmail.com)](mailto:felipe_brito09t@hotmail.com)
