@@ -2,7 +2,7 @@
 <h1 align="center">App Clima</h1>
 
 ## Descrição do Projeto
-<p align="center">Este um projeto para aprendizado de 🔗 React, no qual conseguimos ver o clima em todas as cidades no mundo </p>
+<p >Este um projeto para aprendizado de 🔗 React, no qual conseguimos ver o clima em todas as cidades no mundo </p>
 
 Tabela de conteúdos
 =================
