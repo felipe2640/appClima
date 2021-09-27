@@ -61,5 +61,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 Feito por Felipe Barbosa para iniciar aprendizagem 👋🏽 Entre em contato!
 
-[![Linkedin Badge](https://img.shields.io/badge/-Thiago-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/tgmarinho/)](https://www.linkedin.com/in/felipe-barbosa-849452157/) 
-[![Hotmail Badge](https://img.shields.io/badge/-Hotmail-0078D4?style=flat-square&logo=microsoft-outlook&logoColor=white&link=mailto:luizcarlos_abbott@hotmail.com)](mailto:felipe_brito09t@hotmail.com)
+[![Linkedin Badge](https://img.shields.io/badge/-Thiago-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipe-barbosa-849452157/)](https://www.linkedin.com/in/felipe-barbosa-849452157/) 
+[![Hotmail Badge](https://img.shields.io/badge/-Hotmail-0078D4?style=flat-square&logo=microsoft-outlook&logoColor=white&link=mailto:felipe_brito09t@hotmail.com)](mailto:felipe_brito09t@hotmail.com)
