@@ -22,9 +22,14 @@ Tabela de conteúdos
 - [x] Interface UI
 - [x] Requisição de API Clima
 - [X] Interface UX
+<<<<<<< HEAD
 - [X] Conecção com DB
 - [x] Cadastro de usuário
 - [ ] Autenticação do cliente
+=======
+- [X] Cadastro de usuário
+- [X] Cadastro de cliente 
+>>>>>>> c9671f36f5f8e72506740096656e1614f4ec6c00
 
 ### Pré-requisitos
 
@@ -63,5 +68,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 
 Feito por Felipe Barbosa para iniciar aprendizagem 👋🏽 Entre em contato!
 
-[![Linkedin Badge](https://img.shields.io/badge/-Thiago-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipe-barbosa-849452157/)](https://www.linkedin.com/in/felipe-barbosa-849452157/) 
+[![Linkedin Badge](https://img.shields.io/badge/-Felipe-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/felipe-barbosa-849452157/)](https://www.linkedin.com/in/felipe-barbosa-849452157/) 
 [![Hotmail Badge](https://img.shields.io/badge/-Hotmail-0078D4?style=flat-square&logo=microsoft-outlook&logoColor=white&link=mailto:felipe_brito09t@hotmail.com)](mailto:felipe_brito09t@hotmail.com)
