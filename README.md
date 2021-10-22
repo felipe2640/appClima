@@ -22,14 +22,10 @@ Tabela de conteúdos
 - [x] Interface UI
 - [x] Requisição de API Clima
 - [X] Interface UX
-<<<<<<< HEAD
 - [X] Conecção com DB
 - [x] Cadastro de usuário
 - [ ] Autenticação do cliente
-=======
-- [X] Cadastro de usuário
-- [X] Cadastro de cliente 
->>>>>>> c9671f36f5f8e72506740096656e1614f4ec6c00
+
 
 ### Pré-requisitos
 
