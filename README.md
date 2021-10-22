@@ -22,13 +22,14 @@ Tabela de conteúdos
 - [x] Interface UI
 - [x] Requisição de API Clima
 - [X] Interface UX
-- [ ] Cadastro de usuário
-- [ ] Cadastro de cliente
+- [X] Conecção com DB
+- [x] Cadastro de usuário
+- [ ] Autenticação do cliente
 
 ### Pré-requisitos
 
 Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
-[Git](https://git-scm.com), [React](https://reactjs.org/) ,[Axios](https://axios-http.com/). 
+[Git](https://git-scm.com), [React](https://reactjs.org/) ,[Axios](https://axios-http.com/), [supabase](https://supabase.io/). 
 Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
 ### 🎲 Rodando o Back End (servidor)
@@ -56,6 +57,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
 - [Axios](https://axios-http.com/)
+- [supabase](https://supabase.io/)
 
 ### Autor
 
