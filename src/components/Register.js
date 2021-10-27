@@ -1,81 +1,82 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import {Container,Col, Row,Form,Input,InputGroup,CardBody,Card, Button} from 'reactstrap';
+
+import { useHistory } from 'react-router-dom';
+
 import useClass from './../hooks/add-class-body';
-import { useState, useEffect } from 'react';
+import { useState, useRef } from 'react';
+import { useAuth } from '../contexts/Auth'
 import { supabase } from '../Client';
 
 const Register = (props) => {
     useClass('bg-blue');
+    const mailRef = useRef()
+    const passwordRef = useRef()
+    const nameRef = useRef()
+    const surnameRef = useRef()
+    const mailRef2 =useRef()
+    
 
+    const [error, setError] = useState(null)
+
+    const { signUp } = useAuth()
+    const history = useHistory()
+
+    async function handleSubmit() {
     
-    const [posts, setPosts] = useState([])
-    const [post,setPost] = useState({name:'',
-                                    surname:'',
-                                    birthday:'',
-                                    mail:'',
-                                    password:''
-                                })
-    const {name, surname, birthday, mail, password} = post
+
+    const email = mailRef.current.value
+    const password = passwordRef.current.value
     
-    useEffect(() => {
-        fetchPosts()
-    }, [])
-    async function fetchPosts() {
-        const { data } = await supabase
-         .from('posts')
-         .select()
-        setPost(data)
-        console.log("data: ", data)
-    }
+
+    const { error } = await signUp({ email, password})
+
+    if (error) return setError(error)
+
+    history.push('/')
+  }
+
     async function createUser() {
+    const name = nameRef.current.value
+    const surname = surnameRef.current.value
+    const mail = mailRef2.current.value
         await supabase
             .from('posts')
             .insert([
-                { name, surname, birthday, mail, password }
+                { name, surname, mail}
             ])
             .single()
-        setPost({ name:"", surname:"", birthday:"", mail:"", password:""})
-        fetchPosts()
     }
 
     return (
         <div className="mt-5 flex-row align-items-center ">
-            <Container>
-                <Row className="justify-content-center">
-                    <Col md="5">
-                        <Card>
-                            <CardBody>
-                                <Form className="mb-3">
+            <div class="card text-dark bg-light mb-3">
+                                <form className="container px-4 mb-3 md-5"onSubmit={handleSubmit,createUser}> 
                                     <h1 className="text-center">Register</h1>
-                                    <p>
-                                        Registre-se
-                                    </p>
-                                    <InputGroup className="mb-3">
-                                        <Input type="text" value={name} placeholder="Nome" onChange={e =>setPost({...post, name: e.target.value})}></Input>
-                                    </InputGroup >
-                                    <InputGroup className="mb-3">
-                                        <Input type="text" value={ surname } placeholder="Sobrenome"onChange={e =>setPost({...post, surname: e.target.value})}></Input>
-                                    </InputGroup >
-                                    <InputGroup className="mb-3">
-                                        <Input type="date" value={birthday} placeholder="Data de nascimento"onChange={e =>setPost({...post, birthday: e.target.value})}></Input>
-                                    </InputGroup >
-                                    <InputGroup className="mb-3">
-                                        <Input type="email" value={mail} placeholder="E-mail"onChange={e =>setPost({...post, mail: e.target.value})}></Input>
-                                    </InputGroup >
-                                    <InputGroup className="mb-3">
-                                        <Input type="password" value={password} placeholder="Senha"onChange={e =>setPost({...post, password: e.target.value})}></Input>
-                                    </InputGroup>
-                                    <InputGroup className="mb-3">
-                                       <Link to=""> <Button color="primary"onClick={createUser}>Register</Button></Link>
-                                    </InputGroup>
-
-                                </Form>
-                            </CardBody>
-                        </Card>
-                    </Col>
-                </Row>
-            </Container>
+                                    <div class="form-floating mb-3">                                        
+                                        <input id="input-name" className="form-control px-2 mb-3 mt-3" type="text" ref={nameRef}  required />
+                                        <label for="floatingInput">Nome</label>
+                                    </div>
+                                    <div class="form-floating mb-3">                                        
+                                        <input id="input-surname" className="form-control px-2 mb-3 mt-3" type="text" ref={surnameRef}  required />
+                                        <label for="floatingInput">Sobrenome</label>
+                                    </div>
+                                    <div class="form-floating mb-3">                                        
+                                        <input id="input-email" className="form-control px-2 mb-3 mt-3" type="email" ref={mailRef2}  required />
+                                        <label for="floatingInput">Repita o Email</label>
+                                    </div>                                
+                                    <div class="form-floating mb-3">                                        
+                                        <input id="input-email" className="form-control px-2 mb-3 mt-3" type="email" ref={mailRef}  required />
+                                        <label for="floatingInput">Email</label>
+                                    </div>
+                                    <div class="form-floating mb-3">     
+                                        <input id="input-password" className="form-control px-2" placeholder="Senha" type="password" ref={passwordRef} required/>
+                                        <label for="floatingInput">Senha</label>
+                                    </div>
+                                         
+                                    <button  type="submit" className="btn btn-primary me-md-2" onClick={createUser,handleSubmit}>Register</button>
+                                    <div>{error && JSON.stringify(error)}</div>                                   
+                                </form>
+            </div>
         </div>            
     )
 }

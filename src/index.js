@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './styles/App.scss';
-import App from './App';
+import App from './components/App';
 //import WeatherApp from './components/WeatherApp';
 import reportWebVitals from './reportWebVitals';
 

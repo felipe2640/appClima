@@ -1,72 +1,73 @@
-import { render } from "@testing-library/react";
-import React, { Component } from "react";
+import React, { useState,useRef } from "react";
 import { getWeatherInfo } from "../API";
+import { useHistory } from 'react-router'
+import { useAuth } from '../contexts/Auth'
+// eslint-disable-next-line
 
 //import Toast from "../components/Toast";
 
-export default class WeatherApp extends Component{
-    constructor(props){
-        super(props);
-        this.state = {
-            city: '',
-            weather: {}
-        }
+const WeatherApp = (props) => {
+    
+    const cityRef = useRef()
+    const [data, weather] = useState(null)
+
+    async function searchApi(e) {
+        e.preventDefault()
+        const city = cityRef.current.value
+        const {data} = await getWeatherInfo(city)
+        if (data) return weather(data)
     }
 
-    handleChangeInput = ({target}) => {
-        const { name,value} = target;
-        this.setState({ [name]: value });
+    const { signOut } = useAuth()
+    const history = useHistory()
+    async function handleSignOut() {
+        await signOut()
 
+    history.push('/login')
     }
 
-    searchApi = async() => {
-        const {city} = this.state;
-        const {data} = await getWeatherInfo(city);
-        this.setState({ weather: data });
-        
-
-    }
-
-    render(){
-        const { city, weather } = this.state;
         return(
             <div class="bd-content ps-lg-4">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="button" onClick={handleSignOut} className="btn btn-secondary me-md-2">Sign out</button>
+                </div>
                 <div class="card">
-                         <div class="card-body">
+                        <div class="card-body">
                             <h1 className="text-center">APP CLIMA</h1>
-                         </div>
+                        </div>
+                        
                 </div>
                 
                 <div className="container px-4" >
-                    <input type="text" name="city"className="form-control" onChange={this.handleChangeInput} placeholder="Informe a cidade" value={this.state.city} />
+                    <input type="text" name="city"className="form-control mb-3 mt-3" placeholder="Informe a cidade" ref={cityRef} />
                     <div class="bd-content ps-lg-4">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="button" onClick={this.searchApi} className="btn btn-primary me-md-2" >Create</button>
-                    </div>
+                    <form className="container px-4 mb-3 md-5" onSubmit={searchApi}>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <button type="button" onClick={searchApi} className="btn btn-primary me-md-2 mb-3 mt-3" >Create</button>                            
+                        </div>
+                        
+                    </form>
                     </div>
                 </div>
                     <hr/>
                 <div className="container fluid" >
-                    {/* <Toast message='Toast componente'/> */}
-                    { weather && weather.current ?
                     <div className="weather-info">
                         <div class="card text-center">
                                 <div class="card-body">
-                                   <img src={weather.current.weather_icons} class="card-img-top" alt=""/>
-                                </div>
-                            
+                                   <img src={data && (data.current.weather_icons)} class="img-fluid img-thumbnaill" alt=""/> 
+                                </div>                            
                                 <div className="card-body">
-                                    <h4 className="text-center" >{weather.current.weather_descriptions}</h4>
-                                    <h5 className="text-center" >{weather.current.temperature} °C </h5>
+                                    <h4 className="text-center" >{data && (data.current.weather_descriptions)}</h4>
+                                    <h5 className="text-center" >{data && (data.current.temperature) } </h5>
                                 </div>
                             
                         </div>
                     </div>
-                    : <p className="text-center"> Note that</p>
-                     }
                 </div>
             </div>
 
         );
     }
-}
+
+
+export default WeatherApp;
