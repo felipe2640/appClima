@@ -24,7 +24,7 @@ Tabela de conteúdos
 - [X] Interface UX
 - [X] Conecção com DB
 - [x] Cadastro de usuário
-- [ ] Autenticação do cliente
+- [x] Autenticação do cliente
 
 
 ### Pré-requisitos
